@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Ultimate Tic-Tac-Toe</title>
+  <!-- Bootstrap CSS (Optional for styling/icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  />
+  <!-- Font Awesome (Optional for icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container-fluid d-flex flex-column align-items-center justify-content-center main-container">
+    <!-- Title -->
+    <h1 class="mt-4 fancy-title">Tic-Tac-Toe</h1>
+
+    <!-- Configuration Row -->
+    <div class="config-row my-3 d-flex flex-wrap align-items-center justify-content-center">
+      <!-- Symbol Choice -->
+      <div class="symbol-choice">
+        <label for="symbolSelect" class="me-2 fw-bold">Choose Your Symbol:</label>
+        <select id="symbolSelect" class="form-select w-auto">
+          <option value="X">X</option>
+          <option value="O">O</option>
+        </select>
+      </div>
+
+      <!-- Difficulty Range -->
+      <div class="difficulty-wrapper ms-4">
+        <label for="difficultyRange" class="form-label fw-bold me-2">
+          Difficulty: 
+          <span id="difficultyValue">Easy</span>
+        </label>
+        <input
+          type="range"
+          class="form-range"
+          min="1"
+          max="3"
+          step="1"
+          value="1"
+          id="difficultyRange"
+        />
+      </div>
+    </div>
+
+    <!-- Scoreboard -->
+    <div class="scoreboard d-flex mb-3 flex-wrap align-items-center justify-content-center">
+      <div class="score-box text-center me-3">
+        <div class="player-label fw-bold">Player</div>
+        <div id="playerScore" class="score-value">0</div>
+      </div>
+      <div class="score-box text-center">
+        <div class="player-label fw-bold">AI</div>
+        <div id="aiScore" class="score-value">0</div>
+      </div>
+    </div>
+
+    <!-- Tic-Tac-Toe Board -->
+    <div class="ttt-board" id="board">
+      <!-- Lines that form the tic-tac-toe grid -->
+      <div class="horizontal-line" style="top: 33%;"></div>
+      <div class="horizontal-line" style="top: 66%;"></div>
+      <div class="vertical-line" style="left: 33%;"></div>
+      <div class="vertical-line" style="left: 66%;"></div>
+
+      <!-- 9 clickable "zones" -->
+      <div class="cell" data-index="0" style="top:0; left:0;"></div>
+      <div class="cell" data-index="1" style="top:0; left:33%;"></div>
+      <div class="cell" data-index="2" style="top:0; left:66%;"></div>
+      <div class="cell" data-index="3" style="top:33%; left:0;"></div>
+      <div class="cell" data-index="4" style="top:33%; left:33%;"></div>
+      <div class="cell" data-index="5" style="top:33%; left:66%;"></div>
+      <div class="cell" data-index="6" style="top:66%; left:0;"></div>
+      <div class="cell" data-index="7" style="top:66%; left:33%;"></div>
+      <div class="cell" data-index="8" style="top:66%; left:66%;"></div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-group my-4">
+      <button id="resetBtn" class="btn custom-btn me-3">
+        <i class="fas fa-redo-alt me-1"></i> Reset Board
+      </button>
+      <button id="newGameBtn" class="btn custom-btn">
+        <i class="fas fa-trash-alt me-1"></i> Reset Scores
+      </button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="index.js"></script>
+  <!-- Bootstrap JS (Optional) -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+</body>
+</html>

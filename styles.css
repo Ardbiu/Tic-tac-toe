@@ -1,0 +1,235 @@
+/* Global Reset & Imports */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  body {
+    min-height: 100vh;
+    /* Vibrant Gradient Background */
+    background: linear-gradient(135deg, #ff9966, #ff5e62, #f7b42c, #fdc830);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+  }
+  
+  /* Keyframe for Animated Gradient */
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Main Container to Center Everything */
+  .main-container {
+    text-align: center;
+    color: #fff;
+    padding: 2rem 1rem;
+  }
+  
+  /* Title */
+  .fancy-title {
+    font-size: 3rem;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1rem;
+  }
+  
+  /* Configuration Row (Symbol + Difficulty) */
+  .config-row {
+    gap: 1.5rem;
+  }
+  
+  /* Updated Dropdown Style */
+  .symbol-choice label,
+  .difficulty-wrapper label {
+    font-size: 1rem;
+  }
+  
+  .symbol-choice select {
+    appearance: none; /* Remove default browser styling */
+    background: linear-gradient(135deg, #ff9966, #ff5e62);
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .symbol-choice select:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #ff5e62, #ff9966);
+    box-shadow: 0 6px 15px rgba(255, 94, 98, 0.5);
+  }
+  
+  .symbol-choice select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 94, 98, 0.5);
+  }
+  
+  .symbol-choice select option {
+    background-color: #fff; /* Dropdown background */
+    color: #333; /* Option text color */
+  }
+  
+  /* Difficulty Slider */
+  .difficulty-wrapper span {
+    color: #222;
+    background-color: #ffd700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 5px;
+  }
+  
+  .form-range {
+    cursor: pointer;
+  }
+  
+  /* Scoreboard */
+  .scoreboard {
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .score-box {
+    width: 100px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 0.8rem;
+  }
+  
+  .player-label {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  
+  .score-value {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  /* Tic-Tac-Toe Board - 4 Lines for Grid */
+  .ttt-board {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin-top: 1rem;
+  }
+  
+  /* Lines */
+  .horizontal-line,
+  .vertical-line {
+    position: absolute;
+    background-color: #fff;
+    transition: background-color 0.3s;
+  }
+  
+  .horizontal-line {
+    left: 0;
+    right: 0;
+    height: 4px;
+  }
+  
+  .vertical-line {
+    top: 0;
+    bottom: 0;
+    width: 4px;
+  }
+  
+  /* Cell Overlays */
+  .cell {
+    position: absolute;
+    width: 33%;
+    height: 33%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    user-select: none;
+  }
+  
+  .cell:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Winning animation (highlight) */
+  .cell.win {
+    animation: winningBlink 1s infinite alternate;
+  }
+  
+  @keyframes winningBlink {
+    0% {
+      color: #fff;
+      transform: scale(1);
+    }
+    100% {
+      color: #ffd700;
+      transform: scale(1.2);
+    }
+  }
+  
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .custom-btn {
+    background: #fff;
+    color: #ff5722;
+    font-weight: 600;
+    border-radius: 25px;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    margin-top: 0.5rem;
+    transition: all 0.3s;
+  }
+  
+  .custom-btn:hover {
+    background: #ffe0b2;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 480px) {
+    .ttt-board {
+      width: 260px;
+      height: 260px;
+    }
+  
+    .cell {
+      font-size: 2.5rem;
+    }
+  
+    .fancy-title {
+      font-size: 2.2rem;
+    }
+  
+    .score-box {
+      width: 80px;
+    }
+  
+    .config-row,
+    .scoreboard {
+      flex-direction: column;
+    }
+  }
+  
